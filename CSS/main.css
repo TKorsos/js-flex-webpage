@@ -1,0 +1,351 @@
+:root {
+    --primary: #f9d5e5;
+    --secondary: #eeac99;
+    --btn-bg: #96ceb4;
+    --btn-text: #ffeead;
+    --btn-text-alt: #ffcc5c;
+    --color-opacity-half: .5;
+    --color-opacity-full: 1;
+    --nav: rgba(224, 99, 119, var(--color-opacity-full));
+    --nav-half: rgba(224, 99, 119, var(--color-opacity-half));
+    --container: #c83349;
+    --footer: #ff6f69;
+    --outline: #fbefcc;
+    --text-decoration: none;
+    --transition-time: 700ms;
+    --offset: .7rem;
+    --radius: .25rem;
+    --text-shadow: .5rem;
+    --btn-after: 450ms;
+    --underline-offset: .3rem;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--container);
+    line-height: 1.5rem;
+    letter-spacing: .1rem;
+    scroll-behavior: smooth;
+    scroll-padding-top: 10rem;
+}
+
+/* nav */
+
+.nav {
+    display: flex;
+    align-items: center;
+    min-height: 100px;
+    padding: 1rem 3rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    /* background-color: var(--nav); */
+    background: linear-gradient(to top, var(--nav), var(--nav-half));
+
+}
+
+.nav>ul {
+    display: flex;
+    flex: 100%;
+    justify-content: space-between;
+    padding: 0;
+    list-style-type: none;
+}
+
+.nav>ul>li>a,
+.footer>ul>li>a {
+    color: var(--btn-text);
+    text-decoration: var(--text-decoration);
+    transition: all var(--transition-time) linear;
+}
+
+.nav>ul>li>a:hover {
+    color: var(--btn-text-alt);
+    outline: 1px solid var(--outline);
+    outline-offset: var(--offset);
+    border-radius: var(--radius);
+    text-shadow: var(--text-shadow) var(--text-shadow) var(--text-shadow) var(--btn-text-alt);
+}
+
+/* main */
+
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 3rem;
+    background-color: var(--container);
+    color: var(--secondary);
+}
+
+.article-heading {
+    display: flex;
+    justify-content: center;
+}
+
+.article-heading>h1 {
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+}
+
+.home-h1-text {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 2rem auto;
+    width: calc(100% / 3);
+    text-align: justify;
+}
+
+.home-h2-text {
+    display: flex;
+    margin: 2rem 0;
+    gap: 1.5rem;
+}
+
+.home-h2-text>article {
+    flex: 50%;
+    text-align: justify;
+}
+
+.shop-h2-text {
+    display: flex;
+    margin: 2rem 0;
+    gap: 1.5rem;
+}
+
+.shop-h2-text>article {
+    flex: calc(100% / 3);
+    text-align: justify;
+}
+
+.about-h2-text {
+    display: flex;
+    flex-direction: row;
+    margin: 2rem 0;
+    gap: 1.5rem;
+}
+
+.about-h2-text>article {
+    flex: calc(100% / 4);
+    text-align: justify;
+}
+
+.contact-h2-text {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 2rem auto;
+    width: calc(100% / 3);
+}
+
+.contact-form-text {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    width: 100%;
+}
+
+.contact-form-text>div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.input-area {
+    width: 100%;
+    padding: .5rem 1rem;
+    border: 2px solid var(--primary);
+    color: var(--container);
+}
+
+.input-area:focus {
+    background-color: var(--primary);
+    outline: none;
+}
+
+.message-area {
+    height: 8rem;
+}
+
+.contact-btn {
+    background-color: transparent;
+    color: var(--btn-text);
+    border: transparent;
+    box-shadow: 0 0 var(--text-shadow) var(--btn-bg);
+    border-radius: var(--radius);
+    margin: 1rem auto;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    position: relative;
+    isolation: isolate;
+}
+
+.contact-btn::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    background-color: var(--btn-bg);
+    color: var(--container);
+    inset: 0;
+    border-radius: var(--radius);
+    scale: 0 1;
+    transform-origin: left;
+    transition: all var(--btn-after);
+}
+
+.contact-btn:hover::after,
+.contact-btn:focus-visible::after {
+    border-radius: var(--radius);
+    box-shadow: 0 0 var(--text-shadow) var(--btn-text-alt);
+    scale: 1 1;
+}
+
+/* footer */
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem 3rem;
+    background-color: var(--footer);
+    color: var(--secondary);
+}
+
+.footer>ul {
+    display: flex;
+    flex: 100%;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 0;
+    list-style-type: none;
+}
+
+.footer>ul>li>a:hover {
+    text-decoration: underline 1px solid var(--outline);
+    text-underline-offset: var(--underline-offset);
+    text-shadow: var(--text-shadow) var(--text-shadow) var(--text-shadow) var(--btn-text-alt);
+}
+
+.footer>.copyright {
+    text-align: center;
+    color: var(--container);
+}
+
+/* media queries */
+
+@media screen and (max-width: 1200px) {
+    .home-h1-text {
+        width: calc(100% / 2);
+    }
+
+    .contact-h2-text {
+        width: calc(100% / 2);
+    }
+
+    .footer>ul {
+        gap: 1rem;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .home-h1-text {
+        width: calc(100% - (100% / 3));
+    }
+
+    .about-h2-text {
+        flex-wrap: wrap;
+    }
+
+    .about-h2-text>article {
+        flex: calc(100% / 4);
+    }
+
+    .contact-h2-text {
+        width: calc(100% - (100% / 3));
+    }
+
+    .footer>ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .home-h1-text {
+        width: calc(100% - (100% / 4));
+    }
+
+    .shop-h2-text {
+        flex-wrap: wrap;
+    }
+
+    .shop-h2-text>article {
+        flex: calc(100% / 3);
+    }
+
+    .about-h2-text {
+        flex-wrap: wrap;
+    }
+
+    .about-h2-text>article {
+        flex: calc(100% / 3);
+    }
+
+    .contact-h2-text {
+        width: calc(100% - (100% / 4));
+    }
+}
+
+@media screen and (max-width: 600px) {
+
+    html,
+    body {
+        scroll-padding-top: 15rem;
+    }
+
+    .home-h1-text {
+        width: 100%;
+    }
+
+    .nav>ul {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .home-h1-text {
+        width: 100%;
+        text-align: justify;
+    }
+
+    .home-h2-text {
+        flex-wrap: wrap;
+    }
+
+    .shop-h2-text {
+        flex-wrap: wrap;
+    }
+
+    .shop-h2-text>article {
+        flex: 100%;
+    }
+
+    .about-h2-text {
+        flex-wrap: wrap;
+    }
+
+    .about-h2-text>article {
+        flex: 100%;
+    }
+
+    .contact-h2-text {
+        width: 100%;
+    }
+}
